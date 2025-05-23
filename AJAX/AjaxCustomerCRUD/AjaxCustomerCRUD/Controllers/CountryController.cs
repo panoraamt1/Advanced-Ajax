@@ -91,6 +91,7 @@ namespace AjaxCustomerCRUD.Controllers
             }
             catch (Exception ex)
             {
+                _context.Entry(country).Reload();
                 ModelState.AddModelError("", ex.InnerException.Message);
                 return View(country);
             }
