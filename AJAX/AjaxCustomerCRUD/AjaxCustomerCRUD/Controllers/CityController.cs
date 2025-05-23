@@ -18,7 +18,7 @@ namespace AJAX.Controllers
         {
             List<City> Cities;
             Cities = _context.Cities.ToList();
-            return View();
+            return View(Cities);
         }
         [HttpGet]
         public IActionResult Create()
