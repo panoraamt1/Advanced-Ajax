@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace AjaxCustomerCRUD.Models
 {
-    public class Customer
+    public class Country
     {
         [Key]
         public int Id { get; set; }

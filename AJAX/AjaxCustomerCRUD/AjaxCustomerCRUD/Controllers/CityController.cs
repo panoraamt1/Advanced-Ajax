@@ -84,7 +84,7 @@ namespace AJAX.Controllers
         private List<SelectListItem> GetCountries()
         {
             var lstCountries = new List<SelectListItem>();
-            List<Customer> Countries = _context.Countries.ToList();
+            List<Country> Countries = _context.Countries.ToList();
             lstCountries = Countries.Select(ct => new SelectListItem()
             {
                 Value = ct.Id.ToString(),

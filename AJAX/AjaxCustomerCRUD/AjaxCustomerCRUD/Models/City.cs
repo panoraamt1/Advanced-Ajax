@@ -20,6 +20,6 @@ namespace AjaxCustomerCRUD.Models
         [ForeignKey("Country")]
         public int CountryId { get; set; }
 
-        public virtual Customer Country { get; set; }
+        public virtual Country Country { get; set; }
     }
 }

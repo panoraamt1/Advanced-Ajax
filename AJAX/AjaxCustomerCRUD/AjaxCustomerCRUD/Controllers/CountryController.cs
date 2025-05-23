@@ -16,7 +16,7 @@ namespace AjaxCustomerCRUD.Controllers
 
         public IActionResult Index()
         {
-            List<Customer> countries;
+            List<Country> countries;
             countries = _context.Countries.ToList();
             return View(countries);
         }
@@ -24,13 +24,13 @@ namespace AjaxCustomerCRUD.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            Customer country = new Customer();
+            Country country = new Country();
             return View(country);
         }
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public IActionResult Create(Customer country)
+        public IActionResult Create(Country country)
         {
             _context.Add(country);
             _context.SaveChanges();
@@ -39,7 +39,7 @@ namespace AjaxCustomerCRUD.Controllers
         [HttpGet]
         public IActionResult Details(int Id)
         {
-            Customer country = GetCountry(Id);
+            Country country = GetCountry(Id);
             return View(country);
         }
 
@@ -47,14 +47,14 @@ namespace AjaxCustomerCRUD.Controllers
 
         public IActionResult Edit(int Id)
         {
-            Customer country = GetCountry(Id);
+            Country country = GetCountry(Id);
             return View(country);
         }
 
         [ValidateAntiForgeryToken]
         [HttpPost]
 
-        public IActionResult Edit(Customer country)
+        public IActionResult Edit(Country country)
         {
             _context.Attach(country);
             _context.Entry(country).State = EntityState.Modified;
@@ -62,9 +62,9 @@ namespace AjaxCustomerCRUD.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private Customer GetCountry(int id)
+        private Country GetCountry(int id)
         {
-            Customer country;
+            Country country;
             country = _context.Countries
                 .Where(c => c.Id == id).FirstOrDefault();
             return country;
@@ -74,14 +74,14 @@ namespace AjaxCustomerCRUD.Controllers
 
         public IActionResult Delete(int id)
         {
-            Customer country = GetCountry(id);
+            Country country = GetCountry(id);
             return View(country);
         }
 
         [ValidateAntiForgeryToken]
         [HttpPost]
 
-        public IActionResult Delete(Customer country)
+        public IActionResult Delete(Country country)
         {
             try
             {
