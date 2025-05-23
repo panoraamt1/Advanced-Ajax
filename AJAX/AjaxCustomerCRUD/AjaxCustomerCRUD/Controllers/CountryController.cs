@@ -83,9 +83,17 @@ namespace AjaxCustomerCRUD.Controllers
 
         public IActionResult Delete(Customer country)
         {
-            _context.Attach(country);
-            _context.Entry(country).State = EntityState.Deleted;
-            _context.SaveChanges();
+            try
+            {
+                _context.Attach(country);
+                _context.Entry(country).State = EntityState.Deleted;
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.InnerException.Message);
+                return View(country);
+            }
             return RedirectToAction(nameof(Index));
         }
     }

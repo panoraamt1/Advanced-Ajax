@@ -63,7 +63,7 @@ namespace AJAX.Controllers
             return RedirectToAction(nameof(Index));
         }
         [HttpGet]
-        public IActionResult Deleat(int Id)
+        public IActionResult Delete(int Id)
         {
             City City = _context.Cities.Where(c => c.Id == Id).FirstOrDefault();
 
@@ -73,10 +73,10 @@ namespace AJAX.Controllers
         [ValidateAntiForgeryToken]
         [HttpPost]
 
-        public IActionResult Deleat(City City)
+        public IActionResult Delete(City City)
         {
             _context.Attach(City);
-            _context.Entry(City).State = EntityState.Modified;
+            _context.Entry(City).State = EntityState.Deleted;
             _context.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
