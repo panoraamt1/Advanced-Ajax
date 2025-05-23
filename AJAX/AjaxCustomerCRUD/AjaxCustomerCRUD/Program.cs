@@ -1,4 +1,4 @@
-namespace AdvancedAjax
+namespace AjaxCustomerCRUD
 {
     public class Program
     {

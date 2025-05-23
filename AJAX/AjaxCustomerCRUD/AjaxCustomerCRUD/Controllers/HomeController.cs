@@ -1,8 +1,8 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using AdvancedAjax.Models;
+using AjaxCustomerCRUD.Models;
 
-namespace AdvancedAjax.Controllers;
+namespace AjaxCustomerCRUD.Controllers;
 
 public class HomeController : Controller
 {

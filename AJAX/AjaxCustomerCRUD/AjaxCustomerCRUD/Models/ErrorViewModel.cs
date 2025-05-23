@@ -1,4 +1,4 @@
-namespace AdvancedAjax.Models
+namespace AjaxCustomerCRUD.Models
 {
     public class ErrorViewModel
     {
