@@ -1,0 +1,36 @@
+@model AjaxCustomerCRUD.Models.Customer
+
+<form id="ajaxForm" asp-action="@(Model.Id == 0 ? "Create" : "Edit")" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ProfilePicture"></label>
+        <input asp-for="ProfilePicture" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+@section Scripts {
+    <script>
+        $("#ajaxForm").submit(function (e) {
+            e.preventDefault();
+            var form = $(this);
+            $.ajax({
+                url: form.attr("action"),
+                method: form.attr("method"),
+                data: form.serialize(),
+                success: function () {
+                    $('#modal-placeholder').modal('hide');
+                    loadCustomerList();
+                }
+            });
+        });
+    </script>
+}
